@@ -53,6 +53,14 @@ Basic styles used before we boot up the parsing engine
 Error message and password prompt
 */
 
+.title {
+	color: #ff4d4d;
+}
+
+a.tw-twiddlylink {
+	color: #ff9b9b;
+}
+
 .tw-password-wrapper, .tw-error-form {
     font-family: sans-serif;
 	z-index: 20000;
@@ -110,6 +118,11 @@ Error message and password prompt
 <p>
 <span>
 Custom domains for GitHub Pages</span>
+</p></div></div><div class='tw-list-element'>
+<div class='tw-transclude'>
+<p>
+<span>
+Merging branches</span>
 </p></div></div><div class='tw-list-element'>
 <div class='tw-transclude'>
 <p>
@@ -1269,7 +1282,7 @@ SiteTitle</span>
 <pre>no</pre>
 </div>
 <div title="$:/StoryList">
-<pre>Custom domains for GitHub Pages
+<pre>Merging branches
 GettingStarted</pre>
 </div>
 <div title="$:/HistoryList" type="application/json">
@@ -1420,6 +1433,75 @@ GettingStarted</pre>
     },
     {
         &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Ruby on Rails pages&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 312.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 131,
+            &quot;right&quot;: 908,
+            &quot;bottom&quot;: 328.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Ruby on Rails pages&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 312.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 131,
+            &quot;right&quot;: 908,
+            &quot;bottom&quot;: 328.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;New GitHub repository&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 352.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 144,
+            &quot;right&quot;: 921,
+            &quot;bottom&quot;: 368.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Ruby on Rails pages&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 352.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 131,
+            &quot;right&quot;: 908,
+            &quot;bottom&quot;: 368.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Custom domains for GitHub Pages&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 332.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 220,
+            &quot;right&quot;: 997,
+            &quot;bottom&quot;: 348.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;New GitHub repository&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 292.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 144,
+            &quot;right&quot;: 921,
+            &quot;bottom&quot;: 308.6875,
+            &quot;height&quot;: 16
+        }
     }
 ]</pre>
 </div>
@@ -1705,7 +1787,7 @@ privacy: 'en/privacy'
 
 app.listen();</pre>
 </div>
-<div modified="201308022037" tags="git github" title="New GitHub repository">
+<div modified="201308201836" tags="git github" title="New GitHub repository">
 <pre>Today (8/2/2013) I created a new GitHub repository for a small side project I'm working on: [[WeHo Eat Mo|https://github.com/sahiga/weho-eat-mo]], a randomized spinner that helps you choose where to eat lunch in West Hollywood.
 
 Steps to create and clone a new repo with GItHub:
@@ -1773,6 +1855,19 @@ Next, I added a CNAME file containing nothing but the name of my domain: www.weh
 GitHub's [[guide for custom domains|https://help.github.com/articles/setting-up-a-custom-domain-with-pages]] discusses how to set up a DNS, but this part totally confused me. This [[StackOverflow answer|http://stackoverflow.com/questions/9082499/custom-domain-for-github-project-pages]] gives a more straightforward overview of how to do this.
 
 I bought my domain from [[1&amp;1||https://www.1and1.com]]. In the DNS settings for wehoeatmo.com, I kept the 1&amp;1 name server, but selected the &quot;Other IP Address&quot; option. Here, I added the IP address from the GitHub guide: 204.232.175.78. After that, it worked!</pre>
+</div>
+<div modified="201308201844" tags="git" title="Merging branches">
+<pre>8/20/2013
+
+Today I made a few changes to [[WeHo Eat Mo|http://www.wehoeatmo.com]]. I have two branches for this project: ''master'', my main working branch, and ''gh-pages'', which creates the corresponding GitHub Page. Every time I push to the master branch, I also have to update gh-pages to get the changes to reflect on the Page.
+
+# Commit changes.
+# Push to the master branch: //git push origin master//
+# Switch to the branch you want to merge your changes with: //git checkout gh-pages//. (I was confused at this point because I thought I had to commit separately to gh-pages. I ran //git add .//, //git status//, and //git push origin gh-pages//, none of which did what I needed at this point.)
+# Merge the branches: //git merge master//. This is the key command.
+# Now push to this branch: //git push origin gh-pages//. All done!
+
+Reference: [[Git Branching - Basic Branching and Merging|http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging]]</pre>
 </div>
 
 </div>
