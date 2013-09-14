@@ -122,6 +122,11 @@ Custom domains for GitHub Pages</span>
 <div class='tw-transclude'>
 <p>
 <span>
+Debugging variable issues</span>
+</p></div></div><div class='tw-list-element'>
+<div class='tw-transclude'>
+<p>
+<span>
 Merging branches</span>
 </p></div></div><div class='tw-list-element'>
 <div class='tw-transclude'>
@@ -1282,7 +1287,7 @@ SiteTitle</span>
 <pre>no</pre>
 </div>
 <div title="$:/StoryList">
-<pre>Merging branches
+<pre>Debugging variable issues
 GettingStarted</pre>
 </div>
 <div title="$:/HistoryList" type="application/json">
@@ -1502,6 +1507,9 @@ GettingStarted</pre>
             &quot;bottom&quot;: 308.6875,
             &quot;height&quot;: 16
         }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
     }
 ]</pre>
 </div>
@@ -1868,6 +1876,56 @@ Today I made a few changes to [[WeHo Eat Mo|http://www.wehoeatmo.com]]. I have t
 # Now push to this branch: //git push origin gh-pages//. All done!
 
 Reference: [[Git Branching - Basic Branching and Merging|http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging]]</pre>
+</div>
+<div modified="201309140048" tags="rails ruby heroku" title="Debugging variable issues">
+<pre>9/13
+
+!! Rails notes
+
+!!! Attribute accessors
+New class variables need ''attribute accessors''. These are found in the model for the class. For the class PlatformAlias, the model is platform_alias.rb and looks like this:
+
+//class PlatformAlias &lt; ActiveRecord::Base//
+
+//belongs_to :user//
+
+//attr_accessible :alias, :user_id, :bgColor1, :bgColor2, :textColor, :bannerImg, :platform, :buttonColorHangoutNow, :buttonColorSchedule, :buttonTextColorHangoutNow, :buttonTextColorSchedule, :replaceTextHangoutNow, :replaceTextSchedule//
+
+//end//
+
+!!! Migrations and schema
+The ''schema'' is automatically generated based on ''migrations''. These files are found in the ''db'' folder. To create new migrations, run this on the command line:
+
+//rails g migration Add[name of variable]To[name of class] [name of variable as you want it to appear]:string//
+
+In the command after //rails g migration//, all words should be CamelCased. For the variable replaceTextHangoutNow and the class PlatformAlias, the command looks like this:
+
+//rails g migration AddReplaceTextHangoutNowToPlatformAlias replaceTextHangoutNow:string//
+
+After creating your migrations, run //rake db:migrate// (or //bundle exec rake db:migrate// if Rails throws a rake error) to generate the updated schema. It will appear in schema.rb.
+
+!!! rails c
+''rails c'' is a REPL that hooks into your Rails project.
+
+!!! Rails 1.9.2 vs. Rails 2.0 declarations
+//:replaceTextHangoutNow =&gt; 'Hangout now'// is Rails 1.9.2 style (hash rockets); //replaceTextHangoutNow : 'Hangout now'// is Rails 2.0 style (keywords).
+
+---
+
+!! Heroku notes
+
+!!! heroku run console
+If the variables still come up undefined, examine the class and its variables with ''heroku run console''. Create a variable for the class, e.g., //pa = PlatformAlias.all//. Update undefined (nil) variables with a loop:
+
+//pa.each do |p|
+//p.replaceTextHangoutNow = 'Hangout now'
+//p.save
+//end
+
+This updates all instances of the variable and saves it to the database.
+
+!!! heroku logs --tail
+To keep an eye on error logs, run ''heroku logs --tail'' as you view your project.</pre>
 </div>
 
 </div>
