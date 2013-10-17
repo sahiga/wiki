@@ -117,6 +117,11 @@ a.tw-twiddlylink {
 <div class='tw-transclude'>
 <p>
 <span>
+AngularJS tutorial</span>
+</p></div></div><div class='tw-list-element'>
+<div class='tw-transclude'>
+<p>
+<span>
 Custom domains for GitHub Pages</span>
 </p></div></div><div class='tw-list-element'>
 <div class='tw-transclude'>
@@ -1287,7 +1292,7 @@ SiteTitle</span>
 <pre>no</pre>
 </div>
 <div title="$:/StoryList">
-<pre>Debugging variable issues
+<pre>AngularJS tutorial
 GettingStarted</pre>
 </div>
 <div title="$:/HistoryList" type="application/json">
@@ -1510,6 +1515,31 @@ GettingStarted</pre>
     },
     {
         &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Debugging variable issues&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 292.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 167,
+            &quot;right&quot;: 944,
+            &quot;bottom&quot;: 308.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Debugging variable issues&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 312.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 167,
+            &quot;right&quot;: 944,
+            &quot;bottom&quot;: 328.6875,
+            &quot;height&quot;: 16
+        }
     }
 ]</pre>
 </div>
@@ -1877,7 +1907,7 @@ Today I made a few changes to [[WeHo Eat Mo|http://www.wehoeatmo.com]]. I have t
 
 Reference: [[Git Branching - Basic Branching and Merging|http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging]]</pre>
 </div>
-<div modified="201309140048" tags="rails ruby heroku" title="Debugging variable issues">
+<div modified="201310171830" tags="rails ruby heroku" title="Debugging variable issues">
 <pre>9/13
 
 !! Rails notes
@@ -1926,6 +1956,34 @@ This updates all instances of the variable and saves it to the database.
 
 !!! heroku logs --tail
 To keep an eye on error logs, run ''heroku logs --tail'' as you view your project.</pre>
+</div>
+<div modified="201310172047" tags="angularjs karma javascript tdd jasmine" title="AngularJS tutorial">
+<pre>10/17
+
+!! Running an end-to-end (e2e) test
+# Start the HTTP server: //./scripts/web-server.js//
+# Run the e2e test: //./scripts/e2e-test.sh//
+# Refresh the page to run the test again
+
+!! Running a unit test
+# Run //./scripts/test.sh// to start the Karma server
+# This will launch a new Chrome page that refreshes as you update the code
+
+!! MVC in AngularJS
+  * ''Model'': any data that is accessible as a property of a $scope object. Models can be explicitly created via scope properties.
+  ** Direct property assignment: $scope.foo = 'bar';
+  ** Angular expression: //ng-click=&quot;{{foo='bar'}}&quot;//
+  ** ngInit directive: //ng-init=&quot;foo='bar'&quot;//
+  * They can also be created implicitly through these template constructs.
+  ** Form input, select, textarea, and other form elements: //&lt;input ng-model=&quot;query&quot; value=&quot;fluffy cloud&quot;// (creates a model called &quot;query&quot; on the current scope with the value set to &quot;fluffy cloud&quot;)
+  ** Iterator declaration in ngRepeater: //ng-repeat=&quot;phone in phones&quot;// (creates a child scpe for each item in the &quot;phones&quot; array and a &quot;phone&quot; model on each of these scopes with the value set to the value of &quot;phone&quot; in the array)
+  * A JavaScript object stops being a model when (1) no Angular scope contains a property that references the object or (2) all Angular scopes that contain a property referencing the object become stale. 
+  * ''View'': the projection of the model through the HTML template.
+  * ''Controller'': a JavaScript constructor function that does not refer to the rendering logic. Controllers can be instantiated and tested in isolation (without a view).
+
+!! Two-way data binding
+  * Data binding occurs from ''model to view'' (e.g., in step 4 of the tutorial, when $scope.orderProp is set to &quot;age&quot; in the controller, the view automatically selects &quot;Newest&quot; in the drop-down menu).
+  * Data binding occurs from ''view to model'' (e.g., also in step 4, when the user selects &quot;Alphabetically&quot; in the drop-down menu, the phones will be reordered, and the model, $scope.orderProp, will be updated.</pre>
 </div>
 
 </div>
