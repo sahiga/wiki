@@ -132,6 +132,11 @@ Debugging variable issues</span>
 <div class='tw-transclude'>
 <p>
 <span>
+Dependency injection</span>
+</p></div></div><div class='tw-list-element'>
+<div class='tw-transclude'>
+<p>
+<span>
 Merging branches</span>
 </p></div></div><div class='tw-list-element'>
 <div class='tw-transclude'>
@@ -1292,8 +1297,8 @@ SiteTitle</span>
 <pre>no</pre>
 </div>
 <div title="$:/StoryList">
-<pre>AngularJS tutorial
-GettingStarted</pre>
+<pre>Dependency injection
+AngularJS tutorial</pre>
 </div>
 <div title="$:/HistoryList" type="application/json">
 <pre>[
@@ -1540,6 +1545,97 @@ GettingStarted</pre>
             &quot;bottom&quot;: 328.6875,
             &quot;height&quot;: 16
         }
+    },
+    {
+        &quot;title&quot;: &quot;AngularJS tutorial&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 292.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 112,
+            &quot;right&quot;: 889,
+            &quot;bottom&quot;: 308.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Debugging variable issues&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 312.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 167,
+            &quot;right&quot;: 944,
+            &quot;bottom&quot;: 328.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;AngularJS tutorial&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 292.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 112,
+            &quot;right&quot;: 889,
+            &quot;bottom&quot;: 308.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
+    },
+    {
+        &quot;title&quot;: &quot;Debugging variable issues&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 312.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 167,
+            &quot;right&quot;: 944,
+            &quot;bottom&quot;: 328.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;New GitHub repository&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 372.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 144,
+            &quot;right&quot;: 921,
+            &quot;bottom&quot;: 388.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Custom domains for GitHub Pages&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 412.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 220,
+            &quot;right&quot;: 997,
+            &quot;bottom&quot;: 428.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Ruby on Rails pages&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 432.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 131,
+            &quot;right&quot;: 908,
+            &quot;bottom&quot;: 448.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Parse Cloud Code&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 472.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 116,
+            &quot;right&quot;: 893,
+            &quot;bottom&quot;: 488.6875,
+            &quot;height&quot;: 16
+        }
     }
 ]</pre>
 </div>
@@ -1556,10 +1652,13 @@ GettingStarted</pre>
 <pre>$:/themes/tiddlywiki/snowwhite</pre>
 </div>
 <div title="$:/state/moreSideBarTabSet-tiddlerTitle:$:/core/ui/MoreSideBar;templateTitle:$:/core/ui/MoreSideBar;-tiddlerTitle:$:/core/ui/SideBar;templateTitle:$:/core/ui/SideBar;-tiddlerTitle:$:/core/ui/PageTemplate;-">
-<pre>tagsTab</pre>
+<pre>recentTab</pre>
 </div>
 <div title="$:/NewFieldName">
 <pre></pre>
+</div>
+<div title="$:/view">
+<pre>classic</pre>
 </div>
 
 </div>
@@ -1957,11 +2056,15 @@ This updates all instances of the variable and saves it to the database.
 !!! heroku logs --tail
 To keep an eye on error logs, run ''heroku logs --tail'' as you view your project.</pre>
 </div>
-<div modified="201310172047" tags="angularjs karma javascript tdd jasmine" title="AngularJS tutorial">
-<pre>10/17
+<div modified="201310172322" tags="angularjs karma javascript tdd jasmine" title="AngularJS tutorial">
+<pre>10/17/2013
+
+!! Starting the HTTP server
+# cd into the appropriate directory
+# Run //./scripts/web-server.js//
 
 !! Running an end-to-end (e2e) test
-# Start the HTTP server: //./scripts/web-server.js//
+# Make sure the server is running
 # Run the e2e test: //./scripts/e2e-test.sh//
 # Refresh the page to run the test again
 
@@ -1984,6 +2087,77 @@ To keep an eye on error logs, run ''heroku logs --tail'' as you view your projec
 !! Two-way data binding
   * Data binding occurs from ''model to view'' (e.g., in step 4 of the tutorial, when $scope.orderProp is set to &quot;age&quot; in the controller, the view automatically selects &quot;Newest&quot; in the drop-down menu).
   * Data binding occurs from ''view to model'' (e.g., also in step 4, when the user selects &quot;Alphabetically&quot; in the drop-down menu, the phones will be reordered, and the model, $scope.orderProp, will be updated.</pre>
+</div>
+<div modified="201310180022" tags="angularjs javascript" title="Dependency injection">
+<pre>10/17/2013
+
+!! Definition
+''Dependency injection'' is a software design pattern in which an object declares its dependencies at compile-time or runtime.
+
+This is in opposition to hard-coding dependencies by either (1) creating them (usually using the //new// operator) or (2) looking them up in the global scope. Hard-coding makes it difficult to modify the dependencies.
+
+!! Defining a new dependency in AngularJS
+AngularJS has an //injector//, a service locator, for each of its applications.
+
+# Create a new module: //angular.module('myModule', [])//
+# Create a factory function inside of the module that &quot;teaches&quot; the injector how to build the dependency: //factory('greeter', function($window) { ... });//
+# Create a new injector from the module: //var injector = angular.injector(['myModule', 'ng']);//
+# Use //ng-controller// to instantiate a controller class that uses the injector's methods:
+  ## Add the model to the view: //ng-controller=&quot;MyController&quot;//
+  ## Define the controller: //function MyController($scope, greeter) { ... }//
+  ## Give the controller the injector's methods (I think): //injector.instantiate(MyController)//
+
+!! Using an existing dependency
+Declare the names of the dependencies as arguments to the controller's constructor function, as seen in step 5 of the tutorial:
+
+//function PhoneListCtrl($scope, $http) { ... }//
+
+This gives the PhoneListCtrl controller access to the $http service (and $scope of course). 
+
+Behind the scenes, the dependency injector (DI) identifies $scope and $http as PhoneListCtrl's dependencies. DI checks if these services have already been instantiated, and if not, constructs them with the matching factory function from the service factory repository. DI then provides instances of $scope and $http to the controller constructor.
+
+!! Minification issues
+The injector uses the names of the arguments to look up dependencies and therefore cannot identify services correctly in minified code. There are two ways to prevent these issues:
+* Add an $inject property to the controller that contains an array of the dependencies in string format:
+
+//function PhoneListCtrl($scope, $http) { ... }
+
+PhoneListCtrl.$inject = ['$scope', '$http'];
+
+phonecatApp.controller('PhoneListCtrl', PhoneListCtrl);//
+
+* Or use inline brackets to hold the array of strings, followed by the name of the controller:
+
+// function PhoneListCtrl($scope, $http) { ... }
+
+phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', PhoneListCtrl]);//
+
+The second method is commonly written as follows, with the constructor function provided during controller registration:
+
+//phonecatApp.controller('PhoneListCtrl', ['$scope', '$http', function($scope, $http) { .. }]);//
+
+!! Testing with dependency injection
+!!! &gt; Creating the controller in the test environment
+Jasmine and angular-mocks.js provide the helper methods //module// and //inject//.
+
+//beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) { ... }// injects instances of these three services into Jasmine's beforeEach function. These services come from an injector that is recreated for each test, which ensures that each test is run in isolation.
+
+//scope = $rootScope.$new();// creates a new scope for the controller in the test environment.
+
+//$controller('PhoneListCtrl', {$scope: scope});// calls the injected controller with the new scope in the test environment.
+
+!!! &gt; Working with $http and $httpBackend
+In the test environment, $httpBackend tells the test to expect a request from the $http service. First, inject it into beforeEach (see above). Then use $httpBackend.expectGET() to teach $httpBackend how to respond to this request. Example from the tutorial:
+
+//$httpBackend.expectGET('phones/phones.json').respond([{name: 'Nexus S'}, {name: 'Motorola DROID'}]);//
+
+In the assertion function, use $httpBackend.flush() to &quot;flush&quot; the request queue in the browser. The new response on which $httpBackend.expectGET() was trained will now be used to resolve the promise returned by $http.
+
+Sources:
+
+http://docs.angularjs.org/guide/di
+
+http://docs.angularjs.org/tutorial/step_05</pre>
 </div>
 
 </div>
