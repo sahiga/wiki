@@ -137,6 +137,11 @@ Dependency injection</span>
 <div class='tw-transclude'>
 <p>
 <span>
+Errors in AngularJS tutorial</span>
+</p></div></div><div class='tw-list-element'>
+<div class='tw-transclude'>
+<p>
+<span>
 Merging branches</span>
 </p></div></div><div class='tw-list-element'>
 <div class='tw-transclude'>
@@ -1297,8 +1302,10 @@ SiteTitle</span>
 <pre>no</pre>
 </div>
 <div title="$:/StoryList">
-<pre>Dependency injection
-AngularJS tutorial</pre>
+<pre>Errors in AngularJS tutorial
+Dependency injection
+AngularJS tutorial
+GettingStarted</pre>
 </div>
 <div title="$:/HistoryList" type="application/json">
 <pre>[
@@ -1636,6 +1643,31 @@ AngularJS tutorial</pre>
             &quot;bottom&quot;: 488.6875,
             &quot;height&quot;: 16
         }
+    },
+    {
+        &quot;title&quot;: &quot;AngularJS tutorial&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 332.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 112,
+            &quot;right&quot;: 889,
+            &quot;bottom&quot;: 348.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Dependency injection&quot;,
+        &quot;fromPageRect&quot;: {
+            &quot;top&quot;: 292.6875,
+            &quot;left&quot;: 777,
+            &quot;width&quot;: 138,
+            &quot;right&quot;: 915,
+            &quot;bottom&quot;: 308.6875,
+            &quot;height&quot;: 16
+        }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
     }
 ]</pre>
 </div>
@@ -2088,7 +2120,7 @@ To keep an eye on error logs, run ''heroku logs --tail'' as you view your projec
   * Data binding occurs from ''model to view'' (e.g., in step 4 of the tutorial, when $scope.orderProp is set to &quot;age&quot; in the controller, the view automatically selects &quot;Newest&quot; in the drop-down menu).
   * Data binding occurs from ''view to model'' (e.g., also in step 4, when the user selects &quot;Alphabetically&quot; in the drop-down menu, the phones will be reordered, and the model, $scope.orderProp, will be updated.</pre>
 </div>
-<div modified="201310180022" tags="angularjs javascript" title="Dependency injection">
+<div modified="201310182137" tags="angularjs javascript" title="Dependency injection">
 <pre>10/17/2013
 
 !! Definition
@@ -2158,6 +2190,22 @@ Sources:
 http://docs.angularjs.org/guide/di
 
 http://docs.angularjs.org/tutorial/step_05</pre>
+</div>
+<div modified="201310182153" tags="angularjs jasmine javascript tdd" title="Errors in AngularJS tutorial">
+<pre>10/18/2013
+
+!! ngRoute module
+In steps 10 and 11 of the tutorial, all pages in the app show up blank. This is because the declaration of the phonecatApp module (in app.js) is missing the ngRoute module. ngRoute must be included in a module's dependencies for that module to use $routeProvider.
+
+!! toEqual() vs. toEqualData()
+In step 11, the unit tests in controllersSpec.js fail because toEqual() is used instead of toEqualData(). With toEqual(), the test values need to match the responses returned by the HTTP request, i.e., both the properties and the methods of the two objects need to match. However, $resource augments the response object with additional methods, which means that the response object and the test object would never match.
+
+toEqualData() is a new Jasmine matcher that is defined in lines 3-9 of controllersSpec.js. It compares the properties of the two objects in question only, ignoring the methods.
+
+Sources:
+
+http://docs.angularjs.org/tutorial/step_11
+https://github.com/pivotal/jasmine/wiki/Matchers</pre>
 </div>
 
 </div>
