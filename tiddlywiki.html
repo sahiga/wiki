@@ -122,6 +122,11 @@ AngularJS tutorial</span>
 <div class='tw-transclude'>
 <p>
 <span>
+Coloring the Bash shell</span>
+</p></div></div><div class='tw-list-element'>
+<div class='tw-transclude'>
+<p>
+<span>
 Custom domains for GitHub Pages</span>
 </p></div></div><div class='tw-list-element'>
 <div class='tw-transclude'>
@@ -1302,9 +1307,7 @@ SiteTitle</span>
 <pre>no</pre>
 </div>
 <div title="$:/StoryList">
-<pre>Errors in AngularJS tutorial
-Dependency injection
-AngularJS tutorial
+<pre>Coloring the Bash shell
 GettingStarted</pre>
 </div>
 <div title="$:/HistoryList" type="application/json">
@@ -1665,6 +1668,9 @@ GettingStarted</pre>
             &quot;bottom&quot;: 308.6875,
             &quot;height&quot;: 16
         }
+    },
+    {
+        &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
     },
     {
         &quot;title&quot;: &quot;Draft of 'New Tiddler'&quot;
@@ -2206,6 +2212,58 @@ Sources:
 
 http://docs.angularjs.org/tutorial/step_11
 https://github.com/pivotal/jasmine/wiki/Matchers</pre>
+</div>
+<div modified="201501140602" title="Coloring the Bash shell">
+<pre>! Overview
+
+Today I decided that my Bash shell needed color. After several failed attempts to create and edit .bash_profile, I found a preset ''.bashrc'' file in my username directory (hint: `ls -al` displays all files in the current directory, including hidden files).
+
+.bashrc turned out to be beautifully commented. I managed to enable colors by uncommenting this line:
+
+```
+force_color_prompt=yes
+```
+
+This sets another variable, `color_prompt`, to yes, which in turn adds a permanent color scheme to the shell:
+
+```
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+```
+
+Here's my attempt at translating that line:
+
+* `PS1` - primary prompt string
+* `${debian_chroot:+($debian_chroot)}` - if debian_chroot (Debian change root?) is null or undefined, don't substitute anything; otherwise, place parentheses around the content of debian_chroot and insert it into the prompt
+* `\[\033[` - begin escape character sequence (sequence of non-printed characters)
+* `01;32m` - set color to light (01) green (32)
+* `\]` - end escape character sequence
+* `\u` - display username
+* `@` - display @ sign
+* `\h` - display hostname
+* `\[\033[` - begin escape character sequence
+* `00m` - end colors
+* `\]` - end escape character sequence
+* `:` - display : character
+* `[\033[` - begin escape character sequence
+* `01;34m` - set color to light (01) blue (34)
+* `\w` - display current working directory
+* `\[033[ `- begin escape character sequence
+* `00m` - end colors
+* `\$` - display # if uid is 0; otherwise, display $
+
+This formats a prompt that looks like ''username@HOSTNAME:~$''. I don't know how the tilde gets there.
+
+! Note to self
+
+''Do NOT'' use Kate to edit .bashrc! Before I finished looking up what every character in the color command meant, I tried to change the color of username@HOSTNAME to light yellow. Instead of editing 01;32, I edited 033, resulting in a prompt with all kinds of bizarre characters. I tried to undo my changes, but Kate insisted on breaking the command at odd points. Then I opened vi and got even more confused. Finally I opened it in nano (nano always saves the day) and made the correct substitution.
+
+! References
+
+* [[TwistedCode: Customizing Your Bash Prompt|http://blog.twistedcode.org/2008/03/customizing-your-bash-prompt.html]]
+* [[Bash Reference Manual|http://www.gnu.org/software/bash/manual/bashref.html]]
+* [[Bash Shell: Change the Color of My Shell Prompt Under Linux or UNIX|http://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/]]
+* [[LinuxQuestions.org: bash PS1 debian setting - syntax|http://www.linuxquestions.org/questions/linux-general-1/bash-ps1-debian-setting-syntax-858718/]]
+* [[TiddlyWiki|http://www.tiddlywiki.com]], because it's been so long since I've updated this wiki that I forgot how to write tiddlers. But on the plus side, I finally learned how to format code in WikiText!)</pre>
 </div>
 
 </div>
